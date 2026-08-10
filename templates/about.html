@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}About Circlpk{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">About us</span>
+    <h1>We named it Circlpk because good outbound never really stops.</h1>
+    <p>A circle has no start and no end. That's the whole idea behind how we build business development, not a one-off project, but a system that keeps going.</p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+    <div class="about-grid">
+      <div class="value-card">
+        <span class="eyebrow">Vision</span>
+        <h3>A Pakistan where small and mid-sized businesses compete for global clients on process, not luck.</h3>
+        <p>We want outbound to stop being a mystery that only a handful of founders have figured out, and become something any serious team can learn, run, and trust.</p>
+      </div>
+      <div class="value-card">
+        <span class="eyebrow">Mission</span>
+        <h3>Give every client a business development system they actually own by the end of it.</h3>
+        <p>We audit before we build, we build before we run, and we hand over something documented and repeatable, not a black box that only works while we're in the room.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Core values</span>
+      <h2>What we hold ourselves to, on every project</h2>
+    </div>
+    <div class="values-row">
+      <div class="value-chip">
+        <div class="ring-mark">{% include 'partials/ring_mark.html' %}</div>
+        <h4>Diagnose first</h4>
+        <p>We don't sell a build until we know exactly what's broken. Every engagement starts with the truth about where things stand.</p>
+      </div>
+      <div class="value-chip">
+        <div class="ring-mark">{% include 'partials/ring_mark.html' %}</div>
+        <h4>Systems over hustle</h4>
+        <p>One good week doesn't fix a pipeline. We build processes that keep producing results after the excitement wears off.</p>
+      </div>
+      <div class="value-chip">
+        <div class="ring-mark">{% include 'partials/ring_mark.html' %}</div>
+        <h4>Plain, honest language</h4>
+        <p>No jargon dressed up to sound clever. We explain what we're doing and why, in words a founder without a BD background can follow.</p>
+      </div>
+      <div class="value-chip">
+        <div class="ring-mark">{% include 'partials/ring_mark.html' %}</div>
+        <h4>Ownership, not dependency</h4>
+        <p>Our job is to make ourselves less needed over time, not to keep you tied to us for every small task.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Our story</span>
+      <h2>Why we built Circlpk</h2>
+    </div>
+    <div class="story-block">
+      <p>Circlpk started from a simple frustration: too many good businesses were losing deals not because their product was weak, but because nobody had ever sat down and mapped out how they were actually finding and talking to buyers. We kept seeing the same pattern in different rooms, strong teams, real products, and an outbound process held together by guesswork. So we built the thing we kept wishing someone would hand these founders, a way to see exactly where their pipeline breaks, then a proper system to fix it.</p>
+      <p>The name comes from the shape itself. A circle has no beginning and no end, and that's how we think about business development, not a campaign that runs once and stops, but a loop of outreach, conversation, and follow-up that keeps moving as long as you keep feeding it. Every client, every audit, every playbook we build becomes part of that same circle. We're not chasing a single big win for you. We're building the momentum that keeps your pipeline turning long after we've stepped back.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+    <div class="founder-card">
+      <div class="founder-photo">
+        <img src="{{ url_for('static', filename='img/founder.jpg') }}" alt="Suwaibah Junaid, Founder of Circlpk">
+        <div class="ring-mark">{% include 'partials/ring_mark.html' %}</div>
+      </div>
+      <div>
+        <span class="eyebrow">Founder</span>
+        <h3 class="founder-name">Suwaibah Junaid</h3>
+        <span class="founder-role">Founder, Circlpk</span>
+        <p class="founder-quote">"I wanted a version of business development that Pakistani teams could actually run themselves, not a report that gets read once and shelved. That's what Circlpk is built to be."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="text-align:center;">
+    <span class="eyebrow" style="justify-content:center;">Come say hello</span>
+    <h2 style="margin-top:16px; font-size: clamp(28px,4vw,40px);">Want to know if we're the right fit before you book?</h2>
+    <div style="display:flex; justify-content:center; gap:18px; flex-wrap:wrap; margin-top:30px;">
+      <a href="{{ url_for('consultancy') }}" class="btn btn-terracotta">Ask our AI consultant</a>
+      <a href="{{ url_for('services') }}" class="btn btn-outline">See services & pricing</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

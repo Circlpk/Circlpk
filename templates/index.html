@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block title %}Circlpk: outbound, built as a system{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-copy">
+      <span class="eyebrow">Business development studio · Pakistan</span>
+      <h1>Your pipeline shouldn't depend on a good week. <em>Build the system once.</em></h1>
+      <p class="lede">Circlpk audits your outbound, builds you a proper BD engine, ICP, prospect list, sequences and all, and then runs it alongside your team until closing deals feels routine, not lucky.</p>
+
+      <div class="hero-actions">
+        <a href="{{ url_for('services') }}" class="btn btn-terracotta">See the three tiers</a>
+        <a href="{{ url_for('consultancy') }}" class="link-inline">Ask our AI consultant a question →</a>
+      </div>
+
+      <div class="hero-stats">
+        <div><strong>T1 → T3</strong><span>A staged path, not a bundle</span></div>
+        <div><strong>Audit first</strong><span>We diagnose before we build</span></div>
+        <div><strong>Built in PK</strong><span>Priced for local teams</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="orbit-wrap">
+        <div class="orbit-glow"></div>
+        <div class="orbit-disc">
+          <div class="orbit-ring r2"></div>
+          <div class="orbit-ring r1">
+            <div class="orbit-sat" style="animation-duration:16s;">
+              <div class="sat-badge" title="Audit">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="20" y1="20" x2="15.3" y2="15.3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="orbit-ring r3">
+            <div class="orbit-sat" style="animation-duration:11s;">
+              <div class="sat-badge" title="Build">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M2 13l10 5 10-5"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="orbit-core">
+            <div class="orbit-core-mark">{% include 'partials/ring_mark.html' %}</div>
+          </div>
+        </div>
+      </div>
+      <p class="orbit-caption">Audit → Build → Run, on a loop</p>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-track">
+    <span>Outbound audits</span><span>ICP &amp; prospect lists</span><span>Cold outreach sequences</span><span>Objection handling</span><span>Pipeline tracking</span><span>Done-with-you execution</span>
+    <span>Outbound audits</span><span>ICP &amp; prospect lists</span><span>Cold outreach sequences</span><span>Objection handling</span><span>Pipeline tracking</span><span>Done-with-you execution</span>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>Three tiers. One direction: forward.</h2>
+      <p>You don't have to buy all three at once. Most clients start with the audit, see exactly where their outbound is leaking, and decide from there.</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-card">
+        <span class="tier-code">T1 / AUDIT</span>
+        <h3>Find where deals are dying</h3>
+        <p>We go through your current outbound, who you're targeting, how you're reaching them, and dig into the exact stage where conversations go quiet.</p>
+        <a href="{{ url_for('services') }}#t1">View T1 →</a>
+      </div>
+      <div class="process-card">
+        <span class="tier-code">T2 / BUILD</span>
+        <h3>Build the core product</h3>
+        <p>A discovery call, then the actual system: your ICP, prospect list, cold outreach sequence, objection handling doc and a pipeline tracker.</p>
+        <a href="{{ url_for('services') }}#t2">View T2 →</a>
+      </div>
+      <div class="process-card">
+        <span class="tier-code">T3 / RUN</span>
+        <h3>Build and run it with you</h3>
+        <p>We operate the system for an agreed stretch of time, so your team gets a working pipeline instead of a document sitting in a drive folder.</p>
+        <a href="{{ url_for('services') }}#t3">View T3 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="consult-band">
+      <div>
+        <span class="eyebrow">Consultancy</span>
+        <h2>Not sure where to start? Ask before you book.</h2>
+        <p>Our AI consultant talks you through business development concepts in plain language, no sales pitch, and points you to the right tier once it actually understands what you're stuck on.</p>
+        <a href="{{ url_for('consultancy') }}" class="btn btn-primary" style="margin-top:26px;">Open the consultant</a>
+      </div>
+      <div class="consult-visual">
+        <div class="bubble">What's the difference between a prospect list and an ICP?</div>
+        <div class="bubble me">Good question, they work together but solve different problems...</div>
+        <div class="bubble">Would T1 or T2 make more sense for us?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head" style="margin: 0 auto; text-align:center;">
+      <span class="eyebrow" style="justify-content:center;">Ready when you are</span>
+      <h2>Start with the audit. See the leak before you fix it.</h2>
+    </div>
+    <div style="display:flex; justify-content:center; gap:18px; flex-wrap:wrap;">
+      <a href="{{ url_for('checkout', tier='t1') }}" class="btn btn-terracotta">Book T1: Audit</a>
+      <a href="{{ url_for('about') }}" class="btn btn-outline">Read our story</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
