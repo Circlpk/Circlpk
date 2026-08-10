@@ -1,0 +1,9 @@
+# The bookings database holds real client names, emails and phone numbers.
+*.db
+
+__pycache__/
+*.py[cod]
+
+.env
+venv/
+.venv/

@@ -1,0 +1,5 @@
+Flask>=3.0
+gunicorn>=22.0
+# Optional, only needed if you want the Consultancy chat to use the real
+# Claude API instead of the built-in rule-based assistant:
+# anthropic>=0.34
