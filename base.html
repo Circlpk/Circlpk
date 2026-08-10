@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Circlpk: outbound, built as a system{% endblock %}</title>
+<meta name="description" content="Circlpk is a Pakistan-based business development studio. We audit your outbound, build the playbook, then run it with you until pipeline is a habit, not a scramble.">
+<link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+{% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="{{ url_for('index') }}" class="brand">
+      <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Circlpk logo">
+      <span class="brand-name">Circl<em>pk</em></span>
+    </a>
+
+    <nav class="main-nav">
+      <div class="nav-item" id="servicesNavItem">
+        <button type="button" id="servicesTrigger" aria-expanded="false">
+          Services <span class="chev"></span>
+        </button>
+        <div class="services-menu" id="servicesMenu">
+          <a href="{{ url_for('services') }}#t1">
+            <span class="tier-tag">T1</span>
+            <span class="tier-copy"><strong>Audit</strong><span>A hard look at your current outbound and where the deals are dying.</span></span>
+          </a>
+          <a href="{{ url_for('services') }}#t2">
+            <span class="tier-tag">T2</span>
+            <span class="tier-copy"><strong>Build the core product</strong><span>Your ICP, prospect list, outreach sequence, objection doc and tracker.</span></span>
+          </a>
+          <a href="{{ url_for('services') }}#t3">
+            <span class="tier-tag">T3</span>
+            <span class="tier-copy"><strong>Build and run</strong><span>We operate the system with you for a set stretch of time.</span></span>
+          </a>
+          <div class="menu-foot">
+            <a href="{{ url_for('services') }}">See full breakdown &amp; pricing →</a>
+          </div>
+        </div>
+      </div>
+      <a href="{{ url_for('consultancy') }}" class="{{ 'active' if active_page == 'consultancy' else '' }}">Consultancy</a>
+      <a href="{{ url_for('about') }}" class="{{ 'active' if active_page == 'about' else '' }}">About</a>
+    </nav>
+
+    <div class="header-right">
+      <a href="{{ url_for('services') }}" class="btn btn-primary btn-sm">Book now</a>
+      <div class="flag-badge" title="Proudly Pakistani">
+        {% include 'partials/flag.html' %}
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-group">
+      <button type="button" id="mobileServicesTrigger">Services <span class="chev"></span></button>
+      <div class="mobile-submenu" id="mobileServicesSubmenu">
+        <a href="{{ url_for('services') }}#t1">T1: Audit</a>
+        <a href="{{ url_for('services') }}#t2">T2: Build the core product</a>
+        <a href="{{ url_for('services') }}#t3">T3: Build and run</a>
+      </div>
+    </div>
+    <a href="{{ url_for('consultancy') }}">Consultancy</a>
+    <a href="{{ url_for('about') }}">About</a>
+    <a href="{{ url_for('services') }}" class="btn btn-primary btn-block">Book now</a>
+  </div>
+</header>
+
+<main>
+{% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Circlpk logo">
+          <span>Circlpk</span>
+        </div>
+        <p class="footer-tagline">A business development studio built in Pakistan. Every conversation, every client, every rerun of the system is part of the same circle, we just keep the momentum moving.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <a href="{{ url_for('services') }}#t1">T1: Audit</a>
+        <a href="{{ url_for('services') }}#t2">T2: Build the core product</a>
+        <a href="{{ url_for('services') }}#t3">T3: Build and run</a>
+      </div>
+      <div class="footer-col">
+        <h5>Studio</h5>
+        <a href="{{ url_for('about') }}">About Circlpk</a>
+        <a href="{{ url_for('consultancy') }}">Talk to our AI consultant</a>
+        <a href="{{ url_for('services') }}">Book a tier</a>
+      </div>
+      <div class="footer-col">
+        <h5>Reach us</h5>
+        <p>hello@circlpk.com</p>
+        <p>Lahore, Pakistan</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {{ current_year }} Circlpk. All rights reserved.</span>
+      <span>Made in Pakistan, built for outbound that actually closes.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

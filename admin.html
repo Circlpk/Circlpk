@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block title %}Bookings: Circlpk admin{% endblock %}
+
+{% block extra_css %}
+<style>
+  /* One card per lead. The grids below use auto-fit, so the layout reflows at
+     any width without needing breakpoints of its own. */
+  .lead-list { display: grid; gap: 18px; }
+  @media (min-width: 1080px) { .lead-list { grid-template-columns: 1fr 1fr; } }
+
+  .lead {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 22px 24px;
+  }
+  .lead-top {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px;
+    padding-bottom: 14px; border-bottom: 1px solid var(--line);
+  }
+  .lead-ref {
+    font-family: var(--font-mono); font-size: 12.5px; font-weight: 500;
+    color: var(--terracotta-dk); background: rgba(205, 92, 92, 0.1);
+    padding: 4px 10px; border-radius: 999px;
+  }
+  .lead-tier { font-family: var(--font-mono); font-size: 12px; color: var(--ink-soft); }
+  .lead-when { font-size: 12.5px; color: var(--ink-faint); margin-left: auto; }
+  .lead-company { font-size: 21px; margin: 16px 0 14px; }
+
+  .lead-facts {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px 22px; margin: 0;
+  }
+  .lead-facts dt {
+    font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase;
+    letter-spacing: 0.07em; color: var(--ink-faint); margin-bottom: 3px;
+  }
+  .lead-facts dd { margin: 0; font-size: 14.5px; overflow-wrap: anywhere; }
+  .lead-facts dd span { display: block; font-size: 12.5px; color: var(--ink-soft); }
+  .lead-facts a { border-bottom: 1px solid var(--line-strong); }
+  .lead-facts a:hover { color: var(--terracotta-dk); border-color: var(--terracotta); }
+
+  .lead-notes {
+    margin-top: 18px; padding: 14px 16px; background: var(--cream);
+    border-radius: var(--radius-sm); font-size: 14px; line-height: 1.55; color: var(--ink-soft);
+  }
+  .admin-empty { padding: 56px 0; color: var(--ink-soft); }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero" style="padding-bottom: 20px;">
+  <div class="container">
+    <span class="eyebrow">Admin</span>
+    <h1>{{ bookings|length }} booking request{{ '' if bookings|length == 1 else 's' }}.</h1>
+    <p>
+      Newest first.
+      {% if bookings %}<a href="{{ url_for('admin_bookings_csv') }}">Download as CSV →</a>{% endif %}
+    </p>
+  </div>
+</section>
+
+<section class="section-tight" style="padding-top: 30px;">
+  <div class="container">
+    {% if not bookings %}
+      <p class="admin-empty">No booking requests yet. They'll show up here as soon as someone submits the form.</p>
+    {% else %}
+      <div class="lead-list">
+        {% for booking in bookings %}
+        {% set tier = tiers.get(booking.tier) %}
+        <article class="lead">
+          <div class="lead-top">
+            <span class="lead-ref">{{ booking.reference }}</span>
+            <span class="lead-tier">{{ tier.label ~ ': ' ~ tier.name if tier else booking.tier }}</span>
+            <span class="lead-when">{{ booking.created_at[:16]|replace('T', ' ') }}</span>
+          </div>
+
+          <h3 class="lead-company">{{ booking.company_name }}</h3>
+
+          <dl class="lead-facts">
+            <div>
+              <dt>Contact</dt>
+              <dd>{{ booking.contact_name }}<span>{{ booking.contact_role }}</span></dd>
+            </div>
+            <div>
+              <dt>Email</dt>
+              <dd><a href="mailto:{{ booking.email }}">{{ booking.email }}</a></dd>
+            </div>
+            <div>
+              <dt>Phone</dt>
+              <dd><a href="tel:{{ booking.phone }}">{{ booking.phone }}</a></dd>
+            </div>
+            <div>
+              <dt>Heard via</dt>
+              <dd>{{ booking.source }}</dd>
+            </div>
+            <div>
+              <dt>Team size</dt>
+              <dd>{{ booking.company_size or '—' }}</dd>
+            </div>
+          </dl>
+
+          {% if booking.notes %}<p class="lead-notes">{{ booking.notes }}</p>{% endif %}
+        </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

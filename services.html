@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Services & pricing: Circlpk{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Services</span>
+    <h1>Three tiers, one system. Start wherever your outbound actually needs help.</h1>
+    <p>Each tier stands on its own. Most teams start at T1 to see where the leak is, then move up once they know what needs fixing.</p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+    <div class="tier-list">
+
+      <div class="tier-card" id="t1">
+        <div class="tier-num">01</div>
+        <div class="tier-body">
+          <span class="tier-label">Tier one</span>
+          <h3>Audit</h3>
+          <p class="tier-sub">A hard, honest look at your current outbound before we touch anything.</p>
+          <ul>
+            <li>Full audit of your current outbound: who you're targeting, how you're reaching them, and where the approach is off.</li>
+            <li>We dig into the exact stage where deals keep dying or crashing, not just the symptom, the actual point of failure.</li>
+            <li>A written breakdown of what's working, what isn't, and what we'd fix first.</li>
+          </ul>
+        </div>
+        <div class="tier-price">
+          <div class="amount">Rs 18,000<sup> one time</sup></div>
+          <span class="cadence">Single payment</span>
+          <a href="{{ url_for('checkout', tier='t1') }}" class="btn btn-terracotta">Book now</a>
+        </div>
+      </div>
+
+      <div class="tier-card" id="t2">
+        <div class="tier-num">02</div>
+        <div class="tier-body">
+          <span class="tier-label">Tier two</span>
+          <h3>Build the core product</h3>
+          <p class="tier-sub">We start with a discovery call, then build the actual BD engine your team will run on.</p>
+          <ul>
+            <li>A discovery call to understand your business, your buyers and where T1 (if you've done it) left off.</li>
+            <li>Your ICP, defined properly, not a guess.</li>
+            <li>A qualified prospect list built to match it.</li>
+            <li>A cold outreach sequence, from first touch to follow-up.</li>
+            <li>An objection handling document your team can actually use on calls.</li>
+            <li>A pipeline tracker to keep every conversation visible.</li>
+          </ul>
+        </div>
+        <div class="tier-price">
+          <div class="amount">Rs 40,000<sup> one time</sup></div>
+          <span class="cadence">Single payment</span>
+          <a href="{{ url_for('checkout', tier='t2') }}" class="btn btn-terracotta">Book now</a>
+        </div>
+      </div>
+
+      <div class="tier-card" id="t3">
+        <div class="tier-num">03</div>
+        <div class="tier-body">
+          <span class="tier-label">Tier three</span>
+          <h3>Build and run</h3>
+          <p class="tier-sub">We don't just hand over the system, we operate it with you.</p>
+          <ul>
+            <li>We run the core product day to day: sending outreach, managing the pipeline, and adjusting the approach as we learn what your buyers respond to.</li>
+            <li>Your team stays looped in on every stage instead of inheriting a document nobody touches.</li>
+            <li>Runs for as long as the contract is active, so the system keeps moving instead of stalling after handover.</li>
+          </ul>
+        </div>
+        <div class="tier-price">
+          <div class="amount">Rs 50,000<sup> /mo</sup></div>
+          <span class="cadence">Billed monthly, for the contract term</span>
+          <a href="{{ url_for('checkout', tier='t3') }}" class="btn btn-terracotta">Book now</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="services-note">
+      <div class="ring-divider">{% include 'partials/ring_mark.html' %}</div>
+      <p>Every engagement is a little different. On the booking form you can add any special instructions, and we'll come back to you with a scope and price adjusted for what you actually need.</p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
